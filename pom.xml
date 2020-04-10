@@ -4,13 +4,25 @@
   <artifactId>entrega-tp0</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <build>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.1</version>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
 	<dependencies>
-
       <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.12</version>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-engine</artifactId>
+		<version>5.2.0</version>
+		<scope>test</scope>
       </dependency>
-
    </dependencies>
 </project>
