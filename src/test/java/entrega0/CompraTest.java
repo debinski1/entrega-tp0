@@ -23,13 +23,13 @@ public class CompraTest {
 		//HASTA ACÁ SUMAMOS 3375 EN PLATA
 		double totalCuenta = 0;
 		totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(3375, totalCuenta, 0);
+		Assertions.assertEquals(3375, totalCuenta, 0.01);
 		
 		//AHORA SUMAMOS DOS SERVICIOS Y VEMOS SI EL POLIMORFISMO FUNCIONA
 		changuito.agregarAlCarrito(revocar);
 		changuito.agregarAlCarrito(pintar);
 		totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(4425, totalCuenta, 0);
+		Assertions.assertEquals(4425, totalCuenta, 0.01);
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class CompraTest {
 		changuito.agregarAlCarrito(pintar);
 		
 		double totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(4425, totalCuenta, 0);
+		Assertions.assertEquals(4425, totalCuenta, 0.01);
 	}
 	
 	@Test
@@ -76,7 +76,7 @@ public class CompraTest {
 		changuito.sacarDelCarrito(cemento);
 		
 		double totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(2705, totalCuenta, 0);
+		Assertions.assertEquals(2705, totalCuenta, 0.01);
 	}
 	
 	@Test
@@ -100,7 +100,7 @@ public class CompraTest {
 		changuito.cerrarOperacion();
 		double totalCuenta = changuito.calcularTotal();
 		
-		Assertions.assertEquals(4425, totalCuenta, 0);
+		Assertions.assertEquals(4425, totalCuenta, 0.01);
 		Assertions.assertTrue(changuito.operacionCerrada);
 	}
 	
@@ -125,7 +125,7 @@ public class CompraTest {
 		changuito.cerrarOperacion();
 		double totalCuenta = changuito.calcularTotal();
 		
-		Assertions.assertEquals(4425, totalCuenta, 0);
+		Assertions.assertEquals(4425, totalCuenta, 0.01);
 		Assertions.assertTrue(changuito.operacionCerrada);
 		
 		Assertions.assertThrows(NoSePuedeCambiarPrecioException.class, () -> {
@@ -152,12 +152,12 @@ public class CompraTest {
 		changuito.agregarAlCarrito(pintar);
 		
 		double totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(4425, totalCuenta, 0);
+		Assertions.assertEquals(4425, totalCuenta, 0.01);
 
 		// DADO QUE NO CERRAMOS LA OPERACION, PODEMOS CAMBIAR EL PRECIO
 		cemento.setPrecio(300);
 		totalCuenta = changuito.calcularTotal();
-		Assertions.assertEquals(4505, totalCuenta, 0);
+		Assertions.assertEquals(4505, totalCuenta, 0.01);
 		
 		// Ahora CERRAMOS LA OPERACION Y YA NO PODREMOS CAMBIAR
 		changuito.cerrarOperacion();
