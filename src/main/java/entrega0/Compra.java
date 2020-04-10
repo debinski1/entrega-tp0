@@ -1,9 +1,9 @@
 package entrega0;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Compra {
 
-	List<AComprarInterface> items;
+	ArrayList<AComprarInterface> items = new ArrayList<AComprarInterface>();
 	boolean operacionCerrada = false;
 	
 	public void agregarAlCarrito(AComprarInterface item) {
@@ -21,7 +21,7 @@ public class Compra {
 	}
 	
 	private boolean esProducto (AComprarInterface obj) {
-		return (obj instanceof Producto);
+		return (Producto.class.isInstance(obj));
 	}
 	
 	public Remito generarRemito(String domicilioEntrega) throws NoSePuedeGenerarRemitoException {
