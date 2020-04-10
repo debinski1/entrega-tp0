@@ -1,10 +1,23 @@
 package entrega0;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Compra {
 
 	ArrayList<AComprarInterface> items = new ArrayList<AComprarInterface>();
 	boolean operacionCerrada = false;
+	
+	public void cerrarOperacion() {
+		items.stream().forEach(i -> {
+			try {
+				i.setVendido();
+			} catch (NoHayDevolucionesException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		this.operacionCerrada = true;
+	}
 	
 	public void agregarAlCarrito(AComprarInterface item) {
 		this.items.add(item);

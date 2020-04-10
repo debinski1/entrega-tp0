@@ -20,9 +20,9 @@ public class CosaAcomprar implements AComprarInterface {
 		return vendido;
 	}
 
-	public void setVendido(boolean vendido) throws NoHayDevolucionesException {
-		if (vendido == true) {
-			this.vendido = vendido;
+	public void setVendido() throws NoHayDevolucionesException {
+		if (this.vendido == false) {
+			this.vendido = true;
 		} else {
 			throw new NoHayDevolucionesException();
 		}
